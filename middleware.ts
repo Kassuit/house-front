@@ -24,7 +24,9 @@ export function middleware(req: NextRequest) {
   });
 
   return NextResponse.next({
-    headers,
+    request: {
+      headers
+    }
   });
 }
 
