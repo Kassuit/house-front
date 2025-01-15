@@ -1,3 +1,4 @@
+import { PostAPIInterface } from "@/types/Post";
 import HttpRequest from "./http_request";
 
 // fetch(`http://${process.env.NEXT_PUBLIC_BACKEND_URL}/user`)
@@ -88,6 +89,11 @@ export default class ApiRequest {
   public async GetPosts(id?: number): Promise<any> {
     const endpoint = "/post/" + (id !== undefined ? `${id}` : ``);
     return this.http_handler.Get(endpoint);
+  }
+
+  public async GetPostWithUser(id: number): Promise<PostAPIInterface> {
+    const endpoint = `/post/${id}/user`;
+    return this.http_handler.Get(endpoint)
   }
 
   public async PostPosts(user_id: number, content: string): Promise<any> {
