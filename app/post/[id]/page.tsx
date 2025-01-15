@@ -1,5 +1,5 @@
 "use client";
-import { PostComponent } from "@/components/PostComponents/Post";
+import { PostComponent } from "@/components/Post/Post";
 import { PostAPIInterface } from "@/types/Post";
 import { UserAPIInterface } from "@/types/User";
 import ApiRequest from "@/utils/api_request";
