@@ -10,22 +10,21 @@ export default function Home() {
   const { id } = useParams<{ id: string }>();
   const postId = parseInt(id);
 
-  const api_handler = new ApiRequest(process.env.NEXT_PUBLIC_BACKEND_URL ?? 'localhost:3000');
+  const api_handler = new ApiRequest(
+    process.env.NEXT_PUBLIC_BACKEND_URL ?? "localhost:3000"
+  );
 
-  // TODO: Set post type
-  const [ post, setPost ] = useState<PostAPIInterface>();
-  const [ user, setUser ] = useState<UserAPIInterface>();
+  const [post, setPost] = useState<PostAPIInterface>();
+  const [user, setUser] = useState<UserAPIInterface>();
 
   useEffect(() => {
-    api_handler.GetPostWithUser(postId)
-      .then((post) => {
-        setPost(post)
-        console.log(post);
-        const { user } = post;
-        setUser(user);
-      });
-  }, [])
+    api_handler.GetPostWithUser(postId).then((post) => {
+      setPost(post);
+      const { user } = post;
+      setUser(user);
+    });
+  }, []);
 
   if (!user || !post) return <div>Loading...</div>;
-  return <PostComponent user={user} post={post} />
+  return <PostComponent user={user} post={post} />;
 }
