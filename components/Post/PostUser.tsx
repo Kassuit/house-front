@@ -1,14 +1,14 @@
 import { UserAPIInterface } from "@/types/User";
 import { FC } from "react"
 
-export interface PostUserComponentProps {
+export interface PostUserProps {
   user: UserAPIInterface
 }
 
-export const PostUserComponent: FC<PostUserComponentProps> = ({...props}) => {
+export const PostUser: FC<PostUserProps> = ({...props}) => {
   const { user } = props;
   return <div>
-    {user.bio}
+    {user.image}
   </div>
   
 }

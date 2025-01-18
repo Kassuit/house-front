@@ -1,11 +1,11 @@
 import { PostAPIInterface } from "@/types/Post";
 import { FC } from "react"
 
-export interface PostContentComponentProps {
+export interface PostContentProps {
   post: PostAPIInterface
 }
 
-export const PostContentComponent: FC<PostContentComponentProps> = ({...props}) => {
+export const PostContent: FC<PostContentProps> = ({...props}) => {
   const { post } = props;
   return <div>
     {post.content}
