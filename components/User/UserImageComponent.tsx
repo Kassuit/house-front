@@ -1,9 +1,9 @@
 import { UserAPIInterface } from "@/types/User";
 import host from "@/utils/host_getter";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, HTMLAttributes } from "react";
 
-export interface UserImageComponentProps {
+export interface UserImageComponentProps extends HTMLAttributes<HTMLImageElement> {
   user: UserAPIInterface;
 }
 
@@ -11,7 +11,7 @@ export const UserImageComponent: FC<UserImageComponentProps> = ({
   ...props
 }) => {
   const { user } = props;
-  return <Image 
+  return <Image {...props}
     src={`http://${host}/images/${user.image}`} 
     alt={user.image} 
     width={0}
