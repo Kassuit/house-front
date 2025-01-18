@@ -11,6 +11,7 @@ export default function Home() {
   const { id } = useParams<{ id: string }>();
   const postId = parseInt(id);
 
+
   const api_handler = new ApiRequest(host);
 
   const [ post, setPost ] = useState<PostAPIInterface>();

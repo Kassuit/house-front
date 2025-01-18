@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { PostUser, PostUserProps } from "./PostUser";
 import { PostContent, PostContentProps } from "./PostContent";
 
